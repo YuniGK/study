@@ -1,0 +1,17 @@
+- 스타일을 추가 할 경우 className이라는 이름으로 추가해서 css를 추가해준다.
+<div className='nav'></div>
+
+- 변수를 넣어주고 싶은 경우 {}를 사용해준다.
+function App() {
+  let text = 'text';
+
+  return (
+    <div className="App">
+      /* JSX */
+      <div className='nav'>
+        <h3>{text}</h3>
+      </div>
+    </div>
+  );
+}
+
