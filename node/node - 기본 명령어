@@ -37,6 +37,8 @@ npm install nodemon
 #yarn add global nodemon
 #파일의 변화가 생겼을 때 알아서 재실행해준다.
 
+yarn add ejs
+
 # --- #
 
 nodemon app.js
