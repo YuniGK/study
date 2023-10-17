@@ -21,4 +21,15 @@ module.exports = app;
 기존에 node 실행 코드
 nodemon app.js였으나 실행 부분을 분래해줘서 아래의 코드로 실행이 된다.
 nodemon ./bin/www.js
+
+package.json에 start에 추가했을 경우 npm start로 작성하면 서버가 실행된다.
+ "scripts": {
+    "start": "node ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "scripts": {
+    "start": "nodemon ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
 */
