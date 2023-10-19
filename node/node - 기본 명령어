@@ -39,6 +39,8 @@ npm install nodemon
 
 yarn add ejs
 
+yarn add body-parser
+
 # --- #
 
 nodemon app.js
