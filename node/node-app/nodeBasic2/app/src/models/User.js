@@ -18,14 +18,13 @@ class User {
         */
         const {id, pwd} = UserStorage.getUserInfo(body.id); 
 
-        console.log(id)
-
         if(id){
-            if(id === body.id && pwd === body.pwd){
+            if(id === body.id && pwd === body.password){
                 return {success : true};
             }else{
                 return {success : false, msg : '로그인 실패'};
             }
+        }else{
             return {success : false, msg : '로그인 실패'};
         }
     }
