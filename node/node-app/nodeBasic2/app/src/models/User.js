@@ -1,5 +1,6 @@
 "use strict";
 
+const { response } = require("express");
 const UserStorage = require('./UserStorge');
 
 class User {
@@ -17,18 +18,17 @@ class User {
         const users = UserStorage.getUsers('id', 'pwd'); 
         const {id, pwd} = UserStorage.getUsers('id', 'pwd'); 
         */
-        const {id, pwd} = await UserStorage.getUserInfo(client.id); 
-
-        if(id){
-            if(id === client.id && pwd === client.password){
-                return {success : true};
-            }else{
-                return {success : false, msg : '로그인 실패'};
-            }
-        }else{
-            return {success : false, msg : '로그인 실패'};
+        console.log(await UserStorage.getUserInfo(client.id));
+        const { id, pwd } = await UserStorage.getUserInfo(client.id); 
+    
+        if (id) {
+          if (id === client.id && pwd === client.pwd) {
+            return { success: true };
+          }
+          return { success: false, msg: "비밀번호가 틀렸습니다." };
         }
-    }
+        return { success: false, msg: "존재하지 않는 아이디입니다." };
+      }
 
     register(){
         const client = this.body;

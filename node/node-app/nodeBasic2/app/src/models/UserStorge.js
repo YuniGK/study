@@ -1,11 +1,22 @@
 "use strict";
 
-const { userInfo } = require('os');
-
 const fs = require('fs').promises;
 
 /* 임시데이터 */
 class UserStorage{   
+    static #getUsers(data, isAll, fields){
+        if(isAll) return users;
+
+        const users = JSON.parse(data);
+        const newUsers = fields.reduce((newUsers, field) =>{
+            if(users.hasOwnProperty(field)){
+                newUsers[field] = users[field];
+            }
+            return newUsers;
+        }, {});        
+        return newUsers;
+    }
+
     static #getUserInfo(data, id){
         const users = JSON.parse(data);
         console.log(users)
@@ -25,19 +36,20 @@ class UserStorage{
         console.log(userInfo)
         return userInfo;
     }
-    
-    static getUsers(...fields){
-        //const users = this.#users;
-        const newUsers = fields.reduce((newUsers, field) =>{
-            if(users.hasOwnProperty(field)){
-                newUsers[field] = users[field];
-            }
-            return newUsers;
-        }, {});        
-        return newUsers;
+
+    static getUsers(isAll, ...fields){
+        return fs
+            .readFile("./src/databases/users.json")
+            .then((data) => {
+                return this.#getUsers(data, isAll, fields);
+            }).catch((err) => {
+                console.err
+            });
     }
 
     static getUserInfo(id){
+        console.log();
+
         return fs
             .readFile("./src/databases/users.json")
             .then((data) => {
@@ -49,17 +61,20 @@ class UserStorage{
             });        
     }
 
-    static save(userInfo){
-        /*
-        const users = this.#users;
+    static async save(userInfo){
+        //const users = await this.getUsers("id", "password", "name");
+        const users = await this.getUsers(true);
 
-        users.id.push(userInfo.id);
-        users.name.push(userInfo.name);
-        users.pwd.push(userInfo.password);
+        //id가 존재하는지 확인
+        if(!users.id.includes(userInfo.id)){
+            users.id.push(userInfo.id);
+            users.name.push(userInfo.name);
+            users.pwd.push(userInfo.pwd);
 
-        console.log(users);
-        return {success : true};
-        */
+            fs.writeFile("./src/databases/users.json", JSON.stringify(users));
+        }
+
+        console.log(users)        
     }
 
 }
