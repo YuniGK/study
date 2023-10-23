@@ -1,3 +1,7 @@
 #태그명
 git tag 버전-이름
 #git tag v0.1.0-tag1
+
+#태그명 업로드
+git push origin 버전-이름
+#git push origin v0.1.0-tag1
