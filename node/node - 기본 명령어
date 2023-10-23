@@ -48,3 +48,4 @@ nodemon app.js
 
 # --- #
 
+npm i -s mysql

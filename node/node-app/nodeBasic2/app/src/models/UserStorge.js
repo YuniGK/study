@@ -1,6 +1,6 @@
  "use strict";
 
-const fs = require('fs').promises;
+const db = require('../config/db');
 
 /* 임시데이터 */
 class UserStorage{   
@@ -49,17 +49,12 @@ class UserStorage{
     }
 
     static getUserInfo(id){
-        console.log();
-
-        return fs
-            .readFile("./src/databases/users.json")
-            .then((data) => {
-                //성공시 실행
-                return this.#getUserInfo(data, id);
-            }).catch((err) => {
-                //실패 또는 에러났을 때 실행
-                console.error
-            });        
+       return new Promise((resolve, reject) => {
+            db.query("SELECT * FROM users WHERE id = ?", [id], (err, data) => {
+                if(err) reject(err);
+                resolve(data[0]);
+            });
+       });    
     }
 
     static async save(userInfo){
