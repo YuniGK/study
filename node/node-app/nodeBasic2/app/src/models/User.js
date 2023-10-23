@@ -10,16 +10,16 @@ class User {
 
     //메서드
     login(){
-        const body = this.body;
+        const client = this.body;
         /*
         동일하다.
         const users = UserStorage.getUsers('id', 'pwd'); 
         const {id, pwd} = UserStorage.getUsers('id', 'pwd'); 
         */
-        const {id, pwd} = UserStorage.getUserInfo(body.id); 
+        const {id, pwd} = UserStorage.getUserInfo(client.id); 
 
         if(id){
-            if(id === body.id && pwd === body.password){
+            if(id === client.id && pwd === client.password){
                 return {success : true};
             }else{
                 return {success : false, msg : '로그인 실패'};
@@ -27,6 +27,13 @@ class User {
         }else{
             return {success : false, msg : '로그인 실패'};
         }
+    }
+
+    register(){
+        const client = this.body;
+
+        const response = UserStorage.save(client);
+        return response;
     }
 }
 
