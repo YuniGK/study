@@ -1,6 +1,6 @@
 "use strict";
 
-const UserStorage = require('../../models/UserStorge');
+const User = require('../../models/User');
 
 /* 컨트롤러의 내용을 분리해준다. */
 const output = {
@@ -13,13 +13,15 @@ const output = {
     //페이지를 렌더링하는 api
 }
 
+/*
 const process = {
     login : (req, res) => {
         console.log(req.body);
         
         const id = req.body.id
             , pwd = req.body.password;
-        /*
+        
+        /
         생성자를 통해 UserStorage를 생성하나, 
         const UserStorage = new UserStorage();
 
@@ -28,9 +30,9 @@ const process = {
 
         getter를 통해서 은닉화한 데이터를 가지고 온다.
         console.log(UserStorage.getUsers); 
-        */
-
-        //필요한 데이터가 무엇인지 정의힌다.
+        
+        필요한 데이터가 무엇인지 정의힌다.
+        /
         const users = UserStorage.getUsers('id', 'pwd'); 
        
         console.log('id ', id, ' / pw ', pwd);
@@ -49,6 +51,15 @@ const process = {
         response.msg = '로그인 실패';
         return res.json(response);
         
+    }
+}
+*/
+
+const process = {
+    login : (req, res) => {    
+        const user = new User(req.body);        
+        const response = user.login();
+        return res.json(response);
     }
 }
 
