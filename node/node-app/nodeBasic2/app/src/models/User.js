@@ -8,15 +8,16 @@ class User {
         this.body = body;
     }
 
+    /* promises사용 시 데이터가 반환되는 때까지오래 걸려 async를 이용한다. */
     //메서드
-    login(){
+    async login(){
         const client = this.body;
         /*
         동일하다.
         const users = UserStorage.getUsers('id', 'pwd'); 
         const {id, pwd} = UserStorage.getUsers('id', 'pwd'); 
         */
-        const {id, pwd} = UserStorage.getUserInfo(client.id); 
+        const {id, pwd} = await UserStorage.getUserInfo(client.id); 
 
         if(id){
             if(id === client.id && pwd === client.password){
