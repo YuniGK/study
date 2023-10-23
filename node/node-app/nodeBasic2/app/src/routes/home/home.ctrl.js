@@ -1,5 +1,7 @@
 "use strict";
 
+const UserStorage = require('../../models/UserStorge');
+
 /* 컨트롤러의 내용을 분리해준다. */
 const output = {
     home : (req, res) => {
@@ -11,33 +13,42 @@ const output = {
     //페이지를 렌더링하는 api
 }
 
-/* 임시데이터 */
-const users = {
-    id : ['test', 'root', 'yuni']
-    , pwd : ['test', 'root', '123']
-}
-
 const process = {
     login : (req, res) => {
         console.log(req.body);
         
         const id = req.body.id
             , pwd = req.body.password;
+        /*
+        생성자를 통해 UserStorage를 생성하나, 
+        const UserStorage = new UserStorage();
 
+        static을 사용할 경우 생성자 없이 사용이 가능하다.
+        console.log(UserStorage.users) 
+
+        getter를 통해서 은닉화한 데이터를 가지고 온다.
+        console.log(UserStorage.getUsers); 
+        */
+
+        //필요한 데이터가 무엇인지 정의힌다.
+        const users = UserStorage.getUsers('id', 'pwd'); 
+       
         console.log('id ', id, ' / pw ', pwd);
+
+        const response = {};
 
         if(users.id.includes(id)){
             const idx = users.id.indexOf(id);
             if(users.pwd[idx] === pwd){
-                return res.json({ success : true });
+                response.success = true;
+                return res.json(response);
             }
         }
 
-        return res.json({
-            success : false
-            , msg : '로그인 실패'
-        });
-
+        response.success = false;
+        response.msg = '로그인 실패';
+        return res.json(response);
+        
     }
 }
 
