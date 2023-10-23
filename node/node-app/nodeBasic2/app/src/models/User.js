@@ -37,7 +37,7 @@ class User {
           const response = await UserStorage.save(client);
           return response;
         } catch (error) {
-          console.error
+          return {success : false, msg : err};
         }        
     }
 }
