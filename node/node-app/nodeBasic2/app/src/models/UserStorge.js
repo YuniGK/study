@@ -1,28 +1,27 @@
 "use strict";
 
-/* 임시데이터 */
-class UserStorage{
-    /* static - 외부에서도 접속이 가능하다.
-    #를 통해서 은닉화해준다. (private 변수로 변경한다.)*/
-    static #users = {
-        id : ['test', 'root', 'yuni']
-        , pwd : ['test', 'root', '123']
-        , name : ['김아무개', '이아무개', '박아무개']
-    };
+const fs = require('fs').promises;
 
-    static getUsers(...fields){
-        const users = this.#users;
+/* 임시데이터 */
+class UserStorage{   
+    static #getUsers(data, isAll, fields){
+        const users = JSON.parse(data);
+
+        if(isAll) return users;
+
         const newUsers = fields.reduce((newUsers, field) =>{
             if(users.hasOwnProperty(field)){
                 newUsers[field] = users[field];
             }
             return newUsers;
-        }, {});
+        }, {});        
         return newUsers;
     }
 
-    static getUserInfo(id){
-        const users = this.#users;
+    static #getUserInfo(data, id){
+        const users = JSON.parse(data);
+        console.log(users)
+
         const idx = users.id.indexOf(id);
 
         /* 
@@ -33,20 +32,54 @@ class UserStorage{
         const userInfo = Object.keys(users).reduce((newUsers, info) => {
             newUsers[info] = users[info][idx];
             return newUsers;        
-        }, {});    
+        }, {});   
 
+        console.log(userInfo)
         return userInfo;
     }
 
-    static save(userInfo){
-        const users = this.#users;
+    static getUsers(isAll, ...fields){
+        return fs
+            .readFile("./src/databases/users.json")
+            .then((data) => {
+                return this.#getUsers(data, isAll, fields);
+            }).catch((err) => {
+                console.err
+            });
+    }
 
-        users.id.push(userInfo.id);
-        users.name.push(userInfo.name);
-        users.pwd.push(userInfo.password);
+    static getUserInfo(id){
+        console.log();
 
-        console.log(users);
-        return {success : true};
+        return fs
+            .readFile("./src/databases/users.json")
+            .then((data) => {
+                //성공시 실행
+                return this.#getUserInfo(data, id);
+            }).catch((err) => {
+                //실패 또는 에러났을 때 실행
+                console.error
+            });        
+    }
+
+    static async save(userInfo){
+        //const users = await this.getUsers("id", "password", "name");
+        const users = await this.getUsers(true);
+
+        //id가 존재하는지 확인
+        if(users.id.includes(userInfo.id)){
+            throw "이미 존재하는 아이디입니다.";
+        }else{            
+            users.id.push(userInfo.id);
+            users.name.push(userInfo.name);
+            users.pwd.push(userInfo.pwd);
+
+            fs.writeFile("./src/databases/users.json", JSON.stringify(users));
+            
+            return {success : true}
+        }
+
+        console.log(users)        
     }
 
 }

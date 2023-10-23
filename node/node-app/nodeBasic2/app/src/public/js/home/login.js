@@ -13,7 +13,7 @@ function login() {
 
     const req = {
         id : id.value
-        , password : pwd.value
+        , pwd : pwd.value
     };
 
     //데이터를 서버로 전송한다.

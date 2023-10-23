@@ -3,8 +3,8 @@
 /* 프론트 js */
 const id = document.querySelector('#id')//id선택자를 가져온다.
 , name = document.querySelector('#name')
-, pwd = document.querySelector('#psword')
-, confirmPwd = document.querySelector('#confirm-psword')
+, pwd = document.querySelector('#pwd')
+, confirmPwd = document.querySelector('#confirm-pwd')
 , registerBtn = document.querySelector('#button');
 
 registerBtn.addEventListener('click', register);
@@ -20,7 +20,7 @@ function register() {
     const req = {
         id : id.value
         , name : name.value
-        , password : pwd.value
+        , pwd : pwd.value
     };
 
     //데이터를 서버로 전송한다.
