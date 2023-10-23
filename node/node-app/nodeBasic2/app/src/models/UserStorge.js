@@ -5,9 +5,10 @@ const fs = require('fs').promises;
 /* 임시데이터 */
 class UserStorage{   
     static #getUsers(data, isAll, fields){
+        const users = JSON.parse(data);
+
         if(isAll) return users;
 
-        const users = JSON.parse(data);
         const newUsers = fields.reduce((newUsers, field) =>{
             if(users.hasOwnProperty(field)){
                 newUsers[field] = users[field];
@@ -66,12 +67,16 @@ class UserStorage{
         const users = await this.getUsers(true);
 
         //id가 존재하는지 확인
-        if(!users.id.includes(userInfo.id)){
+        if(users.id.includes(userInfo.id)){
+            return new Error("이미 존재하는 아이디입니다.");
+        }else{            
             users.id.push(userInfo.id);
             users.name.push(userInfo.name);
             users.pwd.push(userInfo.pwd);
 
             fs.writeFile("./src/databases/users.json", JSON.stringify(users));
+            
+            return {success : true}
         }
 
         console.log(users)        
