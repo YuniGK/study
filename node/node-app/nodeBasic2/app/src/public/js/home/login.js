@@ -3,11 +3,14 @@
 /* 프론트 js */
 const id = document.querySelector('#id')//id선택자를 가져온다.
 , pwd = document.querySelector('#pwd')
-, loginBtn = document.querySelector('button');
+, loginBtn = document.querySelector('#button');
 
 loginBtn.addEventListener('click', login);
 
 function login() {
+    if (!id.value) return alert("아이디를 입력해주십시오.");
+    if (!pwd.value) return alert("비밀번호를 입력해주십시오.");
+
     const req = {
         id : id.value
         , password : pwd.value

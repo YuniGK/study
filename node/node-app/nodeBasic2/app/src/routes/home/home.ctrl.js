@@ -10,6 +10,9 @@ const output = {
     , login : (req, res) => {
         res.render('home/login');
     }
+    , register : (req, res) => {
+        res.render('home/register');
+    }
     //페이지를 렌더링하는 api
 }
 
