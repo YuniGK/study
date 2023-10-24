@@ -48,3 +48,6 @@ nodemon app.js
 
 # --- #
 
+npm i -s mysql
+
+npm i -s dotenv
