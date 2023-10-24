@@ -4,8 +4,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+//환경 변수를 등록 및 관리
 const dotenv = require('dotenv');
 dotenv.config();
+
+const logger = require('./src/config/logger');
+//해당 상황에 따라 원하는 내용을 출력
+logger.log('info', '출력을 원하는 내용');
+//logger.info('출력을 원하는 내용');
 
 const app = express();
 
