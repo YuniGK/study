@@ -3,18 +3,13 @@
 //모듈
 const express = require('express');
 const bodyParser = require('body-parser');
-var path = require('path')
-var rfs = require('rotating-file-stream')
 
 //환경 변수를 등록 및 관리
 const dotenv = require('dotenv');
 dotenv.config();
 
 const morgan = require('morgan');
-var accessLogStream = rfs.createStream('access.log', {
-  interval: '1d', // rotate daily
-  path: path.join(__dirname, 'log')
-})
+const accessLogStream = require('./src/config/log');
 
 const app = express();
 
@@ -33,7 +28,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
 //tiny / dev / combined
-app.use(morgan('dev', { stream: accessLogStream }));
+app.use(morgan('dev'));//콘솔에 찍히는 내용
+app.use(morgan('tiny', { stream: accessLogStream }));//로그 파일에 저장되는 내용
 
 /* use 미들웨어를 등록해주는 메서드이다. 
 routes / home / index.js에 정의한 api를 호출한다.*/
