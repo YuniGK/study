@@ -51,3 +51,6 @@ nodemon app.js
 npm i -s mysql
 
 npm i -s dotenv
+
+#로그
+npm i -s morgan

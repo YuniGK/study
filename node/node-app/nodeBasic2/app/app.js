@@ -3,9 +3,18 @@
 //모듈
 const express = require('express');
 const bodyParser = require('body-parser');
+var path = require('path')
+var rfs = require('rotating-file-stream')
 
+//환경 변수를 등록 및 관리
 const dotenv = require('dotenv');
 dotenv.config();
+
+const morgan = require('morgan');
+var accessLogStream = rfs.createStream('access.log', {
+  interval: '1d', // rotate daily
+  path: path.join(__dirname, 'log')
+})
 
 const app = express();
 
@@ -22,6 +31,9 @@ app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyParser.json());
 //URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 인식되지 않는 문제 해결
 app.use(bodyParser.urlencoded({extended : true}));
+
+//tiny / dev / combined
+app.use(morgan('dev', { stream: accessLogStream }));
 
 /* use 미들웨어를 등록해주는 메서드이다. 
 routes / home / index.js에 정의한 api를 호출한다.*/
