@@ -47,6 +47,10 @@ const logger = createLogger({
     transports: [opts.file]
 });
 
+logger.stream = {
+    write : (message) => logger.info(message)
+}
+
 //환경에 따라 콘솔에 출력된다.
 if(process.env.MODE_ENV !== "production"){
     logger.add(opts.console)
