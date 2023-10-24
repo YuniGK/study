@@ -19,10 +19,10 @@ class User {
         const {id, pwd} = UserStorage.getUsers('id', 'pwd'); 
         */
         try {
-          const { id, pwd } = await UserStorage.getUserInfo(client.id); 
+          const user = await UserStorage.getUserInfo(client.id); 
     
-          if (id) {
-            if (id === client.id && pwd === client.pwd) {
+          if (user) {
+            if (user.id === client.id && user.pwd === client.pwd) {
               return { success: true };
             }
             return { success: false, msg: "비밀번호가 틀렸습니다." };
