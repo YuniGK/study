@@ -1,6 +1,7 @@
 "use strict";
 
 const User = require('../../models/User');
+const logger = require('../../config/logger');
 
 /* 컨트롤러의 내용을 분리해준다. */
 const output = {
@@ -16,58 +17,42 @@ const output = {
     //페이지를 렌더링하는 api
 }
 
-/*
-const process = {
-    login : (req, res) => {
-        console.log(req.body);
-        
-        const id = req.body.id
-            , pwd = req.body.password;
-        
-        /
-        생성자를 통해 UserStorage를 생성하나, 
-        const UserStorage = new UserStorage();
-
-        static을 사용할 경우 생성자 없이 사용이 가능하다.
-        console.log(UserStorage.users) 
-
-        getter를 통해서 은닉화한 데이터를 가지고 온다.
-        console.log(UserStorage.getUsers); 
-        
-        필요한 데이터가 무엇인지 정의힌다.
-        /
-        const users = UserStorage.getUsers('id', 'pwd'); 
-       
-        console.log('id ', id, ' / pw ', pwd);
-
-        const response = {};
-
-        if(users.id.includes(id)){
-            const idx = users.id.indexOf(id);
-            if(users.pwd[idx] === pwd){
-                response.success = true;
-                return res.json(response);
-            }
-        }
-
-        response.success = false;
-        response.msg = '로그인 실패';
-        return res.json(response);
-        
-    }
-}
-*/
-
 const process = {
     login : async (req, res) => {    
         const user = new User(req.body);        
         const response = await user.login();
+
+        const url = {
+            method : "POST"
+            , path : "./login"
+            , status : response.err ? 400 : 200
+        }
+
+        log(response, url);
         return res.json(response);
     }
     ,register : async (req, res) => {    
         const user = new User(req.body);        
         const response = await user.register();
+
+        const url = {
+            method : "POST"
+            , path : "./register"
+            , status : response.err ? 409 : 201
+        }
+
+        log(response, url);
         return res.json(response);
+    }
+}
+
+const log= (response, url) => {
+    if(response.err){
+        logger.error(`${url.method} ${url.path} / 
+        ${url.status} Response : ${response.success}, ${response.err}`);
+    }else{
+        logger.info(`${url.method} ${url.path} / 
+        ${url.status} Response : ${response.success}, msg : ${response.msg || ""}`);
     }
 }
 
