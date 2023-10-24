@@ -8,8 +8,14 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
 
+//접속 등 정보를 로그로 출력
 const morgan = require('morgan');
 const accessLogStream = require('./src/config/log');
+
+const logger = require('./src/config/logger');
+//해당 상황에 따라 원하는 내용을 출력
+logger.log('info', '출력을 원하는 내용');
+//logger.info('출력을 원하는 내용');
 
 const app = express();
 
