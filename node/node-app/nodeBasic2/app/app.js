@@ -8,9 +8,6 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
 
-//접속 등 정보를 로그로 출력
-const morgan = require('morgan');
-
 const logger = require('./src/config/logger');
 //해당 상황에 따라 원하는 내용을 출력
 logger.log('info', '출력을 원하는 내용');
@@ -31,9 +28,6 @@ app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyParser.json());
 //URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 인식되지 않는 문제 해결
 app.use(bodyParser.urlencoded({extended : true}));
-
-//tiny / dev / combined / common
-app.use(morgan('tiny', { stream: logger.stream }));//로그 파일에 저장되는 내용
 
 /* use 미들웨어를 등록해주는 메서드이다. 
 routes / home / index.js에 정의한 api를 호출한다.*/
