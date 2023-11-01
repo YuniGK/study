@@ -27,4 +27,13 @@ userController.saveUser = async (userName, sid) => {
     return user;
 }
 
+//유저검색
+userController.checkUser = async (sid) => {
+    let user = await User.findOne({token : sid});
+
+    if(!user) throw new Error("user not found");
+
+    return user;
+}
+
 module.exports = userController
