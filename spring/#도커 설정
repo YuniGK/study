@@ -1,0 +1,8 @@
+#도커 설정
+
+#docker-compose.yml 파일 생성
+touch docker-compose.yml
+
+#https://hub.docker.com/
+#https://hub.docker.com/_/mysql
+#... via docker-compose or docker stack deploy 내용을 위 docker-compose.yml에 붙여넣고 상황에 맞게 수정한다.

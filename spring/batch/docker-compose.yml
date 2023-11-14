@@ -1,0 +1,13 @@
+# Use root/example as user/password credentials
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql_local
+    image: mysql:8.0.30
+    volumes: #호스트에서 설정 파일과 초기 실행할 쿼리들을 관리
+      - ():/etc/mysql/conf.d
+      - ():/docker-entrypoint-initdb.d
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
