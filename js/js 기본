@@ -54,4 +54,5 @@ const updateMike = update.bind(mike);
 updateMike(1999, 'police');
 console.log(mike);//{name:'mike', birthYear:1999, occupation:"police"}
 
-
+/* https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/assign */
+Object.assign()
