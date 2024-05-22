@@ -14,3 +14,6 @@ Build and run using, Run tests using를  IntelliJ IDEA로 변경해주고 Gradle
 그래도 오류가 발생한다면, application.properties에 spring.mvc.pathmatch.matching-strategy=ant_path_matcher를 추가한다.
 
 정상적으로 서버가 실행되면, http://localhost:8080/swagger-ui/에서 아래와 같은 화면을 확인이 가능하다.
+
+https://springdoc.org/
+spring boot - Swagger-ui 추가하는 방법 안내
