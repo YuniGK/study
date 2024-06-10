@@ -6,7 +6,7 @@ https://www.notion.so/bf3e1931cf674e5dbd8383d20080dc15?pvs=4
     ### 도커 이미지 다운로드 / 가장 최신 버전을 다운로드 한다.
     
     - **docker pull mysql:{version}**
-        - **docker pull mysql:latest**
+    - **docker pull mysql:latest**
     
     ### 도커 컨테이너 생성 및 실행
     
@@ -20,7 +20,9 @@ https://www.notion.so/bf3e1931cf674e5dbd8383d20080dc15?pvs=4
     ### 실행중인 도커 컨테이너 목록 출력
     
     - docker ps
+	docker 실행 중인 목록 출력
     - docker ps -a
+	docker 모든 목록 출력
     
     ### 도커 컨테이너 접속
     
