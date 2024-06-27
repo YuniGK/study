@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(//materia 테마의 위젯
       title: 'Flutter Demo'
       , theme: ThemeData(
         primaryColor: Colors.white
@@ -23,11 +23,11 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
+    return Scaffold(//앱을 상중하로 나눠준다.
+        appBar: AppBar(//상단을 의미
           title : Text('title')//텍스트 추가
         ),
-        body : ColoredBox(
+        body : ColoredBox(//중을 의미
           color: Colors.blue,
 
           child: 
@@ -35,7 +35,7 @@ class MyHome extends StatelessWidget {
               children: <Widget>[
                 Container(
                   color: Colors.yellow,
-                  width: 100,
+                  width: 100,//사이즈 단위 lp
                   height: 100,
                 ),
 
@@ -48,7 +48,7 @@ class MyHome extends StatelessWidget {
                   )
                 ),
 
-                Container(
+                Container(//박스 생성
                   color: Colors.white,
                   width: 100,
                   height: 100,
@@ -65,7 +65,9 @@ class MyHome extends StatelessWidget {
               ],
             ),
 
-        )  
+        ), 
+
+        bottomNavigationBar: BottomAppBar(),//하를 의미
     );
   }
 
