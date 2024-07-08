@@ -12,7 +12,7 @@ class Movie {
         keyword = map['keyword'],
         poster = map['poster'],
         like = map['like'];
-
+  
   Movie.fromSnapshot(DocumentSnapshot snapshot)
       : this.fromMap(snapshot.data, reference: snapshot.reference);
 
