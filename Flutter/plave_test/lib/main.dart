@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:plave_test/screen/home_screen.dart';
+
+import 'package:plave_test/widget/bottom_bar.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,8 +14,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.black,
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
-          .copyWith(secondary: Colors.white)
       ),
 
       home: DefaultTabController(
@@ -24,12 +22,23 @@ class MyApp extends StatelessWidget {
           body: TabBarView(
             physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
-              Container(),
-              Container(),
-              Container(),
-              Container(),
+              HomeScreen(),
+
+              Container(
+                child: Center(child: Text('search'),),
+              ),
+              
+              Container(
+                child: Center(child: Text('save'),),
+              ),
+              
+              Container(
+                child: Center(child: Text('list'),),
+              ),
             ],
           ),
+
+          bottomNavigationBar: BottomBar(),
         )
       ),
 
