@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:plave_test/model/model_movie.dart';
+import 'package:plave_test/widget/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -17,8 +17,19 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
+  void initState() { 
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return TopBar();
+    return ListView(children: <Widget>[
+      Stack(
+        children: <Widget>[
+          CarouselImage(movies),
+          TopBar(),
+        ],)
+    ],);
   }
 }
 
