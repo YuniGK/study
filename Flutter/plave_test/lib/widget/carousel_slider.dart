@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:plave_test/model/model_movie.dart';
 
@@ -14,22 +13,32 @@ class CarouselImage extends StatefulWidget {
 
 class _CarouselImageState extends State<CarouselImage> {
   late List<Movie> movies;
+  late List<String> title;
   late List<Widget> images;
   late List<String> keywords;
   late List<bool> likes;
 
-  int _currentPage = 0;
-  late String _currentKeyword;
+  List<Color> colors = <Color>[Colors.purple, Colors.blue, Colors.pink, Colors.red, Colors.black];
 
+  int _currentPage = 0;
+
+  late String _currentTitle;
+  late String _currentKeyword;
+  late Color _currentColor;
+  
   @override
   void initState() {
     super.initState();
 
     movies = widget.movies;
+    title = movies.map((m) => m.title).toList();
     images = movies.map((m) => Image.asset(m.poster)).toList();
     keywords = movies.map((m) => m.keyword).toList();
     likes = movies.map((m) => m.like).toList();
+
+    _currentTitle = title[0];
     _currentKeyword = keywords[0];
+    _currentColor = colors[0];
   }
 
   @override
@@ -51,12 +60,23 @@ class _CarouselImageState extends State<CarouselImage> {
               onPageChanged: (index, reason) {
                 setState(() {
                   _currentPage = index;
+                  _currentTitle = title[_currentPage];
                   _currentKeyword = keywords[_currentPage];
+                  _currentColor = colors[_currentPage];
                 });
               }
             ),
           ),
 
+        Container(
+            child: Row(
+              children: [
+                Text(_currentTitle),
+                Icon(Icons.favorite, color: _currentColor,),
+              ],
+            ),
+          ),
+          
           Container(
             padding: const EdgeInsets.fromLTRB(0, 10, 0, 3),
             child: Text(_currentKeyword, style: const TextStyle(fontSize: 11),),

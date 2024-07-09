@@ -10,36 +10,36 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
     Movie.fromMap({
-      'title' : '한노아',
-      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'title' : '한노아 ',
+      'keyword' : '공주 / 말랑 뿅아리 / 나비 / 명창 알파카',
       'poster' : 'assets/images/noah/plave_fancam.gif',
       'like' : false
     }),
     
     Movie.fromMap({
       'title' : '남예준',
-      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'keyword' : '1등 신랑감 / 예덩이 / 도베르만두 / 레드아이즈',
       'poster' : 'assets/images/yejun/plave_fancam.gif',
       'like' : false
     }),
 
     Movie.fromMap({
-      'title' : '밤비',
-      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'title' : '채밤비',
+      'keyword' : '시복 / 천년돌 / 뵥뵥이 / 핑크쪼꼬미',
        'poster' : 'assets/images/bamby/plave_fancam.gif',
       'like' : false
     }),
 
     Movie.fromMap({
-      'title' : '은호',
-      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'title' : '도은호',
+      'keyword' : '실버호 / 가나디 / 늑대 / 도으노',
       'poster' : 'assets/images/eunho/plave_fancam.gif',
       'like' : false
     }),
 
     Movie.fromMap({
-      'title' : '하민',
-      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'title' : '유하민',
+      'keyword' : '함니 / 빛하민 / 하미니 / 방가방가캣',
       'poster' : 'assets/images/hamin/plave_fancam.gif',
       'like' : false
     }),
