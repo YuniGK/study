@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:plave_test/model/model_movie.dart';
 
@@ -25,7 +26,6 @@ class _CarouselImageState extends State<CarouselImage> {
     super.initState();
 
     movies = widget.movies;
-    //images = movies.map((m) => Image.asset('assets/images/'+m.poster)).toList();
     images = movies.map((m) => Image.asset(m.poster)).toList();
     keywords = movies.map((m) => m.keyword).toList();
     likes = movies.map((m) => m.like).toList();
@@ -39,7 +39,7 @@ class _CarouselImageState extends State<CarouselImage> {
 
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
           ),
 
           CarouselSlider(
@@ -58,8 +58,56 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
 
           Container(
-            child: Text(_currentKeyword),
-          )
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 3),
+            child: Text(_currentKeyword, style: const TextStyle(fontSize: 11),),
+          ),
+
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                likes[_currentPage] 
+                  ? IconButton(onPressed: (){}, icon: const Icon(Icons.check))
+                  : IconButton(onPressed: (){}, icon: const Icon(Icons.add)),
+
+                const Text('내가 찜한 사진', style: TextStyle(fontSize: 11),),
+              ],
+            ),
+          ),
+
+          Container(
+            padding: const EdgeInsets.only(right: 10),
+            child: 
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle : const TextStyle(color: Colors.white) 
+                ), 
+                onPressed: () {},
+                child: const Row(
+                  children: <Widget>[
+                    Icon(Icons.play_arrow, color: Colors.black,),
+                    Padding(padding: EdgeInsets.all(3)),
+                    Text('재생', style: TextStyle(color: Colors.black),)
+                  ],
+                ),
+              ),
+          ),
+
+          Container(
+            padding: const EdgeInsets.only(right: 10),
+            child: Column(
+              children: <Widget>[
+                IconButton(onPressed: (){}, icon: const Icon(Icons.info),),
+                const Text('정보', style: TextStyle(fontSize: 11),),
+              ],
+            ),
+          ),
+
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center, 
+              children: makeIndicator(likes, _currentPage),     
+            ),)
         ],
 
       ),
@@ -67,3 +115,25 @@ class _CarouselImageState extends State<CarouselImage> {
     );
   }
 }
+
+List<Widget> makeIndicator(List list, int _currentPage){
+    List<Widget> results = [];
+
+    for(var i = 0; i < list.length; i++){
+      results.add(
+        Container(
+          width: 8,
+          height: 8,
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: _currentPage == i
+              ? const Color.fromRGBO(255, 255, 255, .9)
+              : const Color.fromRGBO(255, 255, 255, .4)
+          ),
+        )
+      );
+    }
+
+    return results;
+  }

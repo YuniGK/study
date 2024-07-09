@@ -3,17 +3,47 @@ import 'package:plave_test/model/model_movie.dart';
 import 'package:plave_test/widget/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
+  @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
     Movie.fromMap({
+      'title' : '한노아',
+      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'poster' : 'assets/images/noah/plave_fancam.gif',
+      'like' : false
+    }),
+    
+    Movie.fromMap({
       'title' : '남예준',
       'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
       'poster' : 'assets/images/yejun/plave_fancam.gif',
       'like' : false
-    })
+    }),
+
+    Movie.fromMap({
+      'title' : '밤비',
+      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+       'poster' : 'assets/images/bamby/plave_fancam.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '은호',
+      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'poster' : 'assets/images/eunho/plave_fancam.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '하민',
+      'keyword' : '1등 신랑감/예덩이/도베르만두/레드아이즈',
+      'poster' : 'assets/images/hamin/plave_fancam.gif',
+      'like' : false
+    }),
+    
   ];
 
   @override
