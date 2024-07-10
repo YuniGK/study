@@ -48,24 +48,7 @@ class _CarouselImageState extends State<CarouselImage> {
 
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.all(20),
-          ),
-
-          Container(
-            width: 120,
-            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),   
-            decoration: BoxDecoration(
-              color: Colors.white24,
-              borderRadius: BorderRadius.circular(2)
-            ), 
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.favorite, color: _currentColor,),
-                Text(' '+_currentTitle+' ', style: TextStyle(color: Colors.black),),
-                Icon(Icons.favorite, color: _currentColor,),
-              ],
-            ),
+            padding: const EdgeInsets.all(10),
           ),
 
           CarouselSlider(
@@ -73,7 +56,7 @@ class _CarouselImageState extends State<CarouselImage> {
             options: CarouselOptions(
               autoPlay: true,
               enlargeCenterPage: true,
-              aspectRatio: 2.0,
+              aspectRatio: 1.2,
               onPageChanged: (index, reason) {
                 setState(() {
                   _currentPage = index;
@@ -86,10 +69,28 @@ class _CarouselImageState extends State<CarouselImage> {
           ),
           
           Container(
+            width: 90,
+            //margin: EdgeInsets.only(top:15),
+            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),   
+            decoration: BoxDecoration(
+              color: Colors.white24,
+              borderRadius: BorderRadius.circular(2)
+            ), 
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.favorite, color: _currentColor, size: 13),
+                Text(' '+_currentTitle+' ', style: TextStyle(fontSize : 13, color: Colors.white),),
+                Icon(Icons.favorite, color: _currentColor, size: 13,),
+              ],
+            ),
+          ),
+
+          Container(
             padding: const EdgeInsets.fromLTRB(0, 10, 0, 3),
             child: Text(_currentKeyword, style: const TextStyle(fontSize: 11),),
           ),
-
+          /*
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -130,12 +131,14 @@ class _CarouselImageState extends State<CarouselImage> {
               ],
             ),
           ),
-
+          */
+          /*
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center, 
               children: makeIndicator(likes, _currentPage),     
             ),)
+            */
         ],
 
       ),
