@@ -51,6 +51,23 @@ class _CarouselImageState extends State<CarouselImage> {
             padding: const EdgeInsets.all(20),
           ),
 
+          Container(
+            width: 120,
+            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),   
+            decoration: BoxDecoration(
+              color: Colors.white24,
+              borderRadius: BorderRadius.circular(2)
+            ), 
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.favorite, color: _currentColor,),
+                Text(' '+_currentTitle+' ', style: TextStyle(color: Colors.black),),
+                Icon(Icons.favorite, color: _currentColor,),
+              ],
+            ),
+          ),
+
           CarouselSlider(
             items: images, 
             options: CarouselOptions(
@@ -65,15 +82,6 @@ class _CarouselImageState extends State<CarouselImage> {
                   _currentColor = colors[_currentPage];
                 });
               }
-            ),
-          ),
-
-        Container(
-            child: Row(
-              children: [
-                Text(_currentTitle),
-                Icon(Icons.favorite, color: _currentColor,),
-              ],
             ),
           ),
           
