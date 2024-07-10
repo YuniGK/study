@@ -86,6 +86,85 @@ class _HomeScreenState extends State<HomeScreen> {
     
   ];
 
+  List<Movie> movies3 = [
+    Movie.fromMap({
+      'title' : '맏형즈',
+      'keyword' : '노파민즈',
+      'poster' : 'assets/images/line/youngest_members/plave_line.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '베리즈',
+      'keyword' : '',
+       'poster' : 'assets/images/line/berries/plave_line.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '댕댕즈',
+      'keyword' : '',
+      'poster' : 'assets/images/line/puppies/prave_line.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '예라인',
+      'keyword' : '',
+      'poster' : 'assets/images/line/ye_line/plave_line.gif',
+      'like' : false
+    }),
+    
+    Movie.fromMap({
+      'title' : '쁜라인',
+      'keyword' : '',
+      'poster' : 'assets/images/line/cood_line/plave_line.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '노라인',
+      'keyword' : '',
+      'poster' : 'assets/images/line/no_line/plave_line.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '냥냥즈',
+      'keyword' : '',
+      'poster' : 'assets/images/line/meow/plave_line.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '야타즈',
+      'keyword' : '',
+      'poster' : 'assets/images/line/yatazu/plave_line4.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '댄라즈',
+      'keyword' : '',
+      'poster' : 'assets/images/line/danlaz/plave_line3.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '래퍼즈',
+      'keyword' : '막내즈',
+      'poster' : 'assets/images/line/puppy_cats/plave_line.gif',
+      'like' : false
+    }),
+    
+    Movie.fromMap({
+      'title' : '작곡즈',
+      'keyword' : '',
+      'poster' : 'assets/images/line/composers/plave_line.jpg',
+      'like' : false
+    }),
+  ];
+
   @override
   void initState() { 
     super.initState();
@@ -101,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],),
 
         CircleSlider(movies2,),
-        BoxSlider(movies2,),
+        BoxSlider(movies3,),
       ],
     );
   }

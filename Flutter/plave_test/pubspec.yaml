@@ -81,6 +81,7 @@ flutter:
     - assets/images/line/yatazu/
     - assets/images/line/ye_line/
     - assets/images/line/youngest_members/
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
