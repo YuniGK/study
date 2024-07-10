@@ -55,6 +55,7 @@ class _CarouselImageState extends State<CarouselImage> {
             items: images, 
             options: CarouselOptions(
               autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
               enlargeCenterPage: true,
               aspectRatio: 1.2,
               onPageChanged: (index, reason) {
@@ -68,77 +69,35 @@ class _CarouselImageState extends State<CarouselImage> {
             ),
           ),
           
-          Container(
-            width: 90,
-            //margin: EdgeInsets.only(top:15),
-            padding: EdgeInsets.fromLTRB(0, 5, 0, 5),   
-            decoration: BoxDecoration(
-              color: Colors.white24,
-              borderRadius: BorderRadius.circular(2)
-            ), 
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.favorite, color: _currentColor, size: 13),
-                Text(' '+_currentTitle+' ', style: TextStyle(fontSize : 13, color: Colors.white),),
-                Icon(Icons.favorite, color: _currentColor, size: 13,),
-              ],
-            ),
-          ),
-
-          Container(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 3),
-            child: Text(_currentKeyword, style: const TextStyle(fontSize: 11),),
-          ),
-          /*
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                likes[_currentPage] 
-                  ? IconButton(onPressed: (){}, icon: const Icon(Icons.check))
-                  : IconButton(onPressed: (){}, icon: const Icon(Icons.add)),
-
-                const Text('내가 찜한 사진', style: TextStyle(fontSize: 11),),
-              ],
-            ),
-          ),
-
-          Container(
-            padding: const EdgeInsets.only(right: 10),
-            child: 
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle : const TextStyle(color: Colors.white) 
-                ), 
-                onPressed: () {},
-                child: const Row(
-                  children: <Widget>[
-                    Icon(Icons.play_arrow, color: Colors.black,),
-                    Padding(padding: EdgeInsets.all(3)),
-                    Text('재생', style: TextStyle(color: Colors.black),)
-                  ],
-                ),
+          Container (
+            alignment: Alignment.center,
+            child: Container(
+              width: 90,
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 5),   
+              decoration: BoxDecoration(
+                color: Colors.white24,
+                borderRadius: BorderRadius.circular(2)
+              ), 
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.favorite, color: _currentColor, size: 13),
+                  Text(' '+_currentTitle+' ', style: TextStyle(fontSize : 13, color: Colors.white),),
+                  Icon(Icons.favorite, color: _currentColor, size: 13,),
+                ],
               ),
-          ),
-
-          Container(
-            padding: const EdgeInsets.only(right: 10),
-            child: Column(
-              children: <Widget>[
-                IconButton(onPressed: (){}, icon: const Icon(Icons.info),),
-                const Text('정보', style: TextStyle(fontSize: 11),),
-              ],
             ),
           ),
-          */
-          /*
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center, 
-              children: makeIndicator(likes, _currentPage),     
-            ),)
-            */
+
+          Container (
+            alignment: Alignment.topCenter,
+            child: Container(
+              //margin: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 3),
+              child: Text(_currentKeyword, style: const TextStyle(fontSize: 11),),
+            ),
+          ),
+          
         ],
 
       ),
