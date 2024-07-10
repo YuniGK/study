@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:plave_test/model/model_movie.dart';
+import 'package:plave_test/widget/box_slider.dart';
 import 'package:plave_test/widget/carousel_slider.dart';
+import 'package:plave_test/widget/circle_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,6 +11,44 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Movie> movies = [
+    Movie.fromMap({
+      'title' : '한노아 ',
+      'keyword' : '공주 / 말랑 뿅아리 / 나비 / 명창 알파카',
+      'poster' : 'assets/images/noah/plave_p.gif',
+      'like' : false
+    }),
+    
+    Movie.fromMap({
+      'title' : '남예준',
+      'keyword' : '1등 신랑감 / 예덩이 / 도베르만두 / 레드아이즈',
+      'poster' : 'assets/images/yejun/plave_p.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '채밤비',
+      'keyword' : '시복 / 천년돌 / 뵥뵥이 / 핑크쪼꼬미',
+       'poster' : 'assets/images/bamby/plave_p.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '도은호',
+      'keyword' : '실버호 / 가나디 / 늑대 / 도으노',
+      'poster' : 'assets/images/eunho/plave_p.gif',
+      'like' : false
+    }),
+
+    Movie.fromMap({
+      'title' : '유하민',
+      'keyword' : '함니 / 빛하민 / 하미니 / 방가방가캣',
+      'poster' : 'assets/images/hamin/plave_p.gif',
+      'like' : false
+    }),
+    
+  ];
+
+  List<Movie> movies2 = [
     Movie.fromMap({
       'title' : '한노아 ',
       'keyword' : '공주 / 말랑 뿅아리 / 나비 / 명창 알파카',
@@ -58,8 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           CarouselImage(movies),
           TopBar(),
-        ],)
-    ],);
+        ],),
+
+        CircleSlider(movies2,),
+        BoxSlider(movies2,),
+      ],
+    );
   }
 }
 

@@ -65,16 +65,22 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/noah/
-    - assets/images/noah/plave_fancam.gif
     - assets/images/yejun/
-    - assets/images/yejun/plave_fancam.gif
     - assets/images/bamby/
-    - assets/images/bamby/plave_fancam.gif
     - assets/images/eunho/
-    - assets/images/eunho/plave_fancam.gif
     - assets/images/hamin/
-    - assets/images/hamin/plave_fancam.gif
-     
+    - assets/images/line/
+    - assets/images/line/berries/
+    - assets/images/line/bom_line/
+    - assets/images/line/cood_line/
+    - assets/images/line/danlaz/
+    - assets/images/line/meow/
+    - assets/images/line/no_line/
+    - assets/images/line/puppies/
+    - assets/images/line/puppy_cats/
+    - assets/images/line/yatazu/
+    - assets/images/line/ye_line/
+    - assets/images/line/youngest_members/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
