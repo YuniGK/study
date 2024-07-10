@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:plave_test/model/model_movie.dart';
+import 'package:plave_test/screen/detail_screen.dart';
 
 class CarouselImage extends StatefulWidget {
   final List<Movie> movies;
@@ -72,17 +73,35 @@ class _CarouselImageState extends State<CarouselImage> {
           Container (
             alignment: Alignment.center,
             child: Container(
-              width: 90,
+              width: 120,
               padding: EdgeInsets.fromLTRB(0, 5, 0, 5),   
+
               decoration: BoxDecoration(
                 color: Colors.white24,
                 borderRadius: BorderRadius.circular(2)
-              ), 
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.favorite, color: _currentColor, size: 13),
-                  Text(' '+_currentTitle+' ', style: TextStyle(fontSize : 13, color: Colors.white),),
+                  TextButton(                    
+                    style: TextButton.styleFrom(
+                      textStyle: 
+                        TextStyle(
+                          fontSize : 13, 
+                          color: Colors.white, 
+                        ),                      
+                      ),
+                      onPressed: (){
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            fullscreenDialog: true,
+                            builder: (context) => DetailScreen(movies[_currentPage])
+                          ),                            
+                        );
+                      },
+                      child: Text(' '+_currentTitle+' ', ),
+                    ),
                   Icon(Icons.favorite, color: _currentColor, size: 13,),
                 ],
               ),

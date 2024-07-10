@@ -27,8 +27,8 @@ class BottomBar extends StatelessWidget {
             ),
 
             Tab(
-              icon: Icon(Icons.save_alt, size: 18,),
-              child: Text('찜한 목록', style: TextStyle( fontSize: 9),),
+              icon: Icon(Icons.favorite_border_outlined, size: 18,),
+              child: Text('좋아요', style: TextStyle( fontSize: 9),),
             ),
 
             Tab(

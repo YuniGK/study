@@ -220,7 +220,7 @@ class TopBar extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(right: 1),
             child: Text(
-              '내가 찜한 사진',
+              '좋아요',
               style: TextStyle(fontSize: 14),
             ),
           ),
