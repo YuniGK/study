@@ -15,6 +15,7 @@ class BoxSlider extends StatelessWidget {
         children: <Widget>[
           Text('멤버간 케미'),
           Container(
+            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
             height: 120,
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -40,7 +41,27 @@ List<Widget> makeBoxImages(List<Movie> movies){
             alignment: Alignment.centerLeft,
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Image.asset(movies[i].poster),
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Image.asset(movies[i].poster),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 3),
+                    padding: EdgeInsets.fromLTRB(5, 2, 5, 2),
+                    decoration: BoxDecoration(
+                      color: Colors.black38,
+                      borderRadius: BorderRadius.circular(2)
+                    ),
+                    child: Text(
+                      movies[i].title,
+                      style: TextStyle(
+                        fontSize: 14, 
+                        color: Colors.white,
+                      ),                      
+                    ),
+                  )
+                ],
+              )
             ),
           ),
         ),
