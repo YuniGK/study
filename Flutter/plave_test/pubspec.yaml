@@ -37,6 +37,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   url_launcher: ^6.1.10
+  flutter_linkify: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -82,6 +83,7 @@ flutter:
     - assets/images/line/ye_line/
     - assets/images/line/youngest_members/
     - assets/images/line/composers/
+    - assets/images/all/
 
   #   - images/a_dot_ham.jpeg
 

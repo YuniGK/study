@@ -33,7 +33,7 @@ class BottomBar extends StatelessWidget {
 
             Tab(
               icon: Icon(Icons.list, size: 18,),
-              child: Text('목록', style: TextStyle( fontSize: 9),),
+              child: Text('더보기', style: TextStyle( fontSize: 9),),
             ),
           ],
 

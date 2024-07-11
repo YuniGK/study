@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:plave_test/screen/home_screen.dart';
+import 'package:plave_test/screen/more_screen.dart';
 
 import 'package:plave_test/widget/bottom_bar.dart';
 
@@ -40,9 +41,7 @@ class _MyAppState extends State<MyApp> {
                 child: Center(child: Text('save'),),
               ),
               
-              Container(
-                child: Center(child: Text('list'),),
-              ),
+              MoreScreen(),
             ],
           ),
 
