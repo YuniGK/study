@@ -99,7 +99,8 @@ class _MoreScreenState extends State<MoreScreen> {
                     ),
 
                     Container(
-                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(bottom: 12),
+                      alignment: Alignment.centerLeft,
                       child: SelectableLinkify(
                         onOpen: (link) async {
                             if (!await launchUrl(Uri.parse(link.url))) {
@@ -113,7 +114,7 @@ class _MoreScreenState extends State<MoreScreen> {
                     ),     
 
                     Container(
-                      padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                      padding: EdgeInsets.only(bottom: 12),
                       alignment: Alignment.topLeft,
                       child: SelectableLinkify(
                           onOpen: (link) async {
