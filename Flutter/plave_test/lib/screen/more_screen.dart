@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
 
@@ -42,38 +44,41 @@ class _MoreScreenState extends State<MoreScreen> {
                 padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    SelectableLinkify(
-                      onOpen: (link) async {
-                        if (!await launchUrl(Uri.parse(link.url))) {
-                          throw Exception('Could not launch ${link.url}');
-                        }
-                      },
-                      text: "https://cafe.daum.net/plave",
-                      style: TextStyle(color: Colors.yellow),
-                      linkStyle: TextStyle(color: Colors.white),
-                    ),
+                    Container(
+                      child: IconButton(
+                        onPressed: () async {
+                          Uri? url = Uri.tryParse("https://cafe.daum.net/plave");
+                          /* https://docs.flutterflow.io/ */
+                          await launchUrl(url as Uri);
+                        },
+                        icon: Icon(Icons.local_cafe),
+                        tooltip: '공식 카페',
+                      ),
+                    ), 
 
-                    SelectableLinkify(
-                      onOpen: (link) async {
-                        if (!await launchUrl(Uri.parse(link.url))) {
-                          throw Exception('Could not launch ${link.url}');
-                        }
-                      },
-                      text: "https://www.youtube.com/@plave_official",
-                      style: TextStyle(color: Colors.yellow),
-                      linkStyle: TextStyle(color: Colors.white),
-                    ),       
+                    Container(
+                      child: IconButton(
+                        onPressed: () async {
+                          Uri? url = Uri.tryParse("https://www.youtube.com/@plave_official");
+                          /* https://docs.flutterflow.io/ */
+                          await launchUrl(url as Uri);
+                        },
+                        icon: Icon(Icons.),
+                        tooltip: '공식 유튜브',
+                      ),
+                    ), 
 
-                    SelectableLinkify(
-                      onOpen: (link) async {
-                        if (!await launchUrl(Uri.parse(link.url))) {
-                          throw Exception('Could not launch ${link.url}');
-                        }
-                      },
-                      text: "https://www.instagram.com/plave_official/",
-                      style: TextStyle(color: Colors.yellow),
-                      linkStyle: TextStyle(color: Colors.white),
-                    ),     
+                    Container(
+                      child: IconButton(
+                        onPressed: () async {
+                          Uri? url = Uri.tryParse("https://www.instagram.com/plave_official/");
+                          /* https://docs.flutterflow.io/ */
+                          await launchUrl(url as Uri);
+                        },
+                        icon: Icon(Icons.local_cafe),
+                        tooltip: '공식 인스타그램',
+                      ),
+                    ), 
 
                 ],
               )
@@ -137,4 +142,5 @@ class _MoreScreenState extends State<MoreScreen> {
       ),
     );
   }
+  
 }
