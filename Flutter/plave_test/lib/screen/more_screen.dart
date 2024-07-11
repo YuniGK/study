@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import InstagramIcon from '@mui/icons-material/Instagram';
-
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
 
@@ -44,41 +42,53 @@ class _MoreScreenState extends State<MoreScreen> {
                 padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    Container(
-                      child: IconButton(
-                        onPressed: () async {
-                          Uri? url = Uri.tryParse("https://cafe.daum.net/plave");
-                          /* https://docs.flutterflow.io/ */
-                          await launchUrl(url as Uri);
-                        },
-                        icon: Icon(Icons.local_cafe),
-                        tooltip: '공식 카페',
+                    TextButton(                    
+                    style: TextButton.styleFrom(
+                      textStyle: 
+                        TextStyle(
+                          fontSize : 11, 
+                          color: Colors.white, 
+                        ),                      
                       ),
-                    ), 
+                      onPressed: () async {
+                        Uri? url = Uri.tryParse("https://cafe.daum.net/plave");
+                        /* https://docs.flutterflow.io/ */
+                        await launchUrl(url as Uri);
+                      },
+                      child: Text('Cafe'),
+                    ),
 
-                    Container(
-                      child: IconButton(
-                        onPressed: () async {
-                          Uri? url = Uri.tryParse("https://www.youtube.com/@plave_official");
-                          /* https://docs.flutterflow.io/ */
-                          await launchUrl(url as Uri);
-                        },
-                        icon: Icon(Icons.),
-                        tooltip: '공식 유튜브',
+                    TextButton(                    
+                    style: TextButton.styleFrom(
+                      textStyle: 
+                        TextStyle(
+                          fontSize : 11, 
+                          color: Colors.white, 
+                        ),                      
                       ),
-                    ), 
+                      onPressed: () async {
+                        Uri? url = Uri.tryParse("https://www.youtube.com/@plave_official");
+                        /* https://docs.flutterflow.io/ */
+                        await launchUrl(url as Uri);
+                      },
+                      child: Text('Youtube'),
+                    ),
 
-                    Container(
-                      child: IconButton(
-                        onPressed: () async {
-                          Uri? url = Uri.tryParse("https://www.instagram.com/plave_official/");
-                          /* https://docs.flutterflow.io/ */
-                          await launchUrl(url as Uri);
-                        },
-                        icon: Icon(Icons.local_cafe),
-                        tooltip: '공식 인스타그램',
+                    TextButton(                    
+                    style: TextButton.styleFrom(
+                      textStyle: 
+                        TextStyle(
+                          fontSize : 11, 
+                          color: Colors.white, 
+                        ),                      
                       ),
-                    ), 
+                      onPressed: () async {
+                        Uri? url = Uri.tryParse("https://www.instagram.com/plave_official/");
+                        /* https://docs.flutterflow.io/ */
+                        await launchUrl(url as Uri);
+                      },
+                      child: Text('Instagram'),
+                    ),
 
                 ],
               )
