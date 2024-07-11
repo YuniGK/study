@@ -14,10 +14,8 @@ class _MoreScreenState extends State<MoreScreen> {
   Widget build(BuildContext context) {
     return Container(
 
-      child: Center(
-        
-        child: Column(
-          
+      child: Center(        
+        child: Column(          
           children: [
             Container(
                 padding: EdgeInsets.only(top: 50),
@@ -39,68 +37,69 @@ class _MoreScreenState extends State<MoreScreen> {
               ),
 
               Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    TextButton(                    
-                    style: TextButton.styleFrom(
-                      textStyle: 
-                        TextStyle(
-                          fontSize : 11, 
-                          color: Colors.white, 
-                        ),                      
+                child: Align(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [                      
+                      TextButton(                    
+                        style: TextButton.styleFrom(
+                        textStyle: 
+                          TextStyle(
+                            fontSize : 11, 
+                            color: Colors.white, 
+                          ),                      
+                        ),
+                        onPressed: () async {
+                          Uri? url = Uri.tryParse("https://cafe.daum.net/plave");
+                          /* https://docs.flutterflow.io/ */
+                          await launchUrl(url as Uri);
+                        },
+                        child: Text('Cafe', style: TextStyle(color: Colors.white)),
                       ),
-                      onPressed: () async {
-                        Uri? url = Uri.tryParse("https://cafe.daum.net/plave");
-                        /* https://docs.flutterflow.io/ */
-                        await launchUrl(url as Uri);
-                      },
-                      child: Text('Cafe'),
-                    ),
 
-                    TextButton(                    
-                    style: TextButton.styleFrom(
-                      textStyle: 
-                        TextStyle(
-                          fontSize : 11, 
-                          color: Colors.white, 
-                        ),                      
+                      TextButton(                    
+                        style: TextButton.styleFrom(
+                        textStyle: 
+                          TextStyle(
+                            fontSize : 11, 
+                            color: Colors.white, 
+                          ),                      
+                        ),
+                        onPressed: () async {
+                          Uri? url = Uri.tryParse("https://www.youtube.com/@plave_official");
+                          /* https://docs.flutterflow.io/ */
+                          await launchUrl(url as Uri);
+                        },
+                        child: Text('Youtube', style: TextStyle(color: Colors.white)),
                       ),
-                      onPressed: () async {
-                        Uri? url = Uri.tryParse("https://www.youtube.com/@plave_official");
-                        /* https://docs.flutterflow.io/ */
-                        await launchUrl(url as Uri);
-                      },
-                      child: Text('Youtube'),
-                    ),
 
-                    TextButton(                    
-                    style: TextButton.styleFrom(
-                      textStyle: 
-                        TextStyle(
-                          fontSize : 11, 
-                          color: Colors.white, 
-                        ),                      
+                      TextButton(                    
+                        style: TextButton.styleFrom(
+                        textStyle: 
+                          TextStyle(
+                            fontSize : 11, 
+                            color: Colors.white, 
+                          ),                      
+                        ),
+                        onPressed: () async {
+                          Uri? url = Uri.tryParse("https://www.instagram.com/plave_official/");
+                          /* https://docs.flutterflow.io/ */
+                          await launchUrl(url as Uri);
+                        },
+                        child: Text('Instagram', style: TextStyle(color: Colors.white)),
                       ),
-                      onPressed: () async {
-                        Uri? url = Uri.tryParse("https://www.instagram.com/plave_official/");
-                        /* https://docs.flutterflow.io/ */
-                        await launchUrl(url as Uri);
-                      },
-                      child: Text('Instagram'),
-                    ),
-
-                ],
-              )
-            ),
-
+                    ],
+                  )
+                ),
+              ),
+              
             Container(
               padding: EdgeInsets.fromLTRB(10, 40, 10, 20),
                 child: Column(                  
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container( 
-                      alignment: Alignment.topLeft,
                       child: SelectableLinkify(
                         onOpen: (link) async {
                             if (!await launchUrl(Uri.parse(link.url))) {
@@ -114,8 +113,6 @@ class _MoreScreenState extends State<MoreScreen> {
                     ),
 
                     Container(
-                      padding: EdgeInsets.only(bottom: 12),
-                      alignment: Alignment.centerLeft,
                       child: SelectableLinkify(
                         onOpen: (link) async {
                             if (!await launchUrl(Uri.parse(link.url))) {
@@ -129,8 +126,6 @@ class _MoreScreenState extends State<MoreScreen> {
                     ),     
 
                     Container(
-                      padding: EdgeInsets.only(bottom: 12),
-                      alignment: Alignment.topLeft,
                       child: SelectableLinkify(
                           onOpen: (link) async {
                               if (!await launchUrl(Uri.parse(link.url))) {
