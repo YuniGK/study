@@ -141,10 +141,6 @@ const TodoContainer = () => {
     });
   };
   
-
-  
-
-
   const onRemoveAll = async (no) => {
     console.log('remove...');
 
