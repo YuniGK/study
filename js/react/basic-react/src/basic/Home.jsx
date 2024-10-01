@@ -19,6 +19,14 @@ const Home = () => {
                 }>
                     param 전송(path variable)
                 </Link>
+
+                <Link to = {"/param?q=aa"}>param 전송(query string)</Link>
+                <Link to = {
+                    {
+                        pathname : "/param"
+                        , search : "?q=aa"
+                    }
+                }>param 전송(query string)</Link>
             </div>
         </div>
     );

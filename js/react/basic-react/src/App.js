@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './basic/Home'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Param from './basic/Param';
+import Param2 from './basic/Param2';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/param/:id' element={<Param />} />
+            <Route path='/param' element={<Param2 />} />
           </Routes>
       </BrowserRouter>
     
