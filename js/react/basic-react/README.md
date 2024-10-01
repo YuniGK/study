@@ -1,3 +1,6 @@
+# 프로젝트 생성을 원하는 폴더 이동 후, 리액트 프로젝트 생성
+npx create-react-app app이름
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
