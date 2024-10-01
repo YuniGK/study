@@ -9,6 +9,12 @@ const Basic02 = () => {
         setNum(num+1);
     }
 
+    function textChange(){
+        let newArray = [...texts];
+        newArray[2] = '12';
+        setTexts(newArray);
+    }
+
     return (
         <div>
             <div className='black-nav'>
@@ -18,7 +24,7 @@ const Basic02 = () => {
             <div className='list'>
                 <h3>{texts[0]} <span onClick={onClick}>{num}👍</span></h3>
                 <h3>{texts[1]} <span onClick={()=>{ setNum2(num2+1) }}>{num2}👍</span></h3>
-                <h3>{texts[2]}</h3>
+                <h3 onClick={textChange}>{texts[2]}</h3>
                 <h3>{texts[3]}</h3>
                 <h3>{texts[4]}</h3>
             </div>
