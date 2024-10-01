@@ -2,11 +2,11 @@ import { useSearchParams } from "react-router-dom";
 
 const Param2 = () => {
     const [params] = useSearchParams();
-    console.log(params.get("q"));
+    console.log(`q ${params.get("q")} / page ${params.get("page")}`);
 
     return (
         <div className="param-page">
-            <p>param {}</p>
+            <p>param</p>
         </div>
     );
 }
