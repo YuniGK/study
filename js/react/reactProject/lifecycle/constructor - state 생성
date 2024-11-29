@@ -1,0 +1,54 @@
+[ class 컴포넌트 ]
+componetDidMount
+componetDidUpdate
+componetWillUnmount
+의 함수를 사용할 수 있다.
+
+<Mouting>
+constructor - state 생성
+↓
+render - UI를 그림
+↓
+componetDidMount - API 호출
+
+<Updating>
+new props / setState() / forceUpdate 일시, 업데이트가 된다.
+
+render - UI를 그림
+↓
+componetDidUpdate - state값 업데이트
+
+<Unmouting>
+앱 종료
+
+componetWillUnmount - 종료시 사용
+
+-----
+
+[ function 컴포넌트 ]
+useEffect
+
+useEffect는 함수와 배열을 받는다.
+
+componetDidMount와 같은 기능을 한다.
+, 페이지 로딩 시 무조건 한번 실행된다.
+useEffect(() => {
+	함수
+}, []);
+
+-----
+
+함수 - 페이지 로딩시 한번 실행된다.
+
+배열에 있는 내용이 변경 될 경우 다시 로딩된다.
+배열에 값이 여러개일 경우 그중 값이 하나라도 변화면 다시 로딩한다.
+값이 여러개가 변경되도 로딩은 한번만 실행된다.
+
+componetDidUpdate와 같은 기능을 한다.
+useEffect(() => {
+	함수
+}, [state]);
+
+[배열에는 값을 여러개 넣을 수 있다.]
+예) [counter, value]
+

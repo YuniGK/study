@@ -1,0 +1,16 @@
+#리액트 프로젝트 생성
+npx create-react-app [프로젝트명]
+
+#vs code 열기
+code .
+
+#프로젝트 시작
+npm start
+
+#기존 폴더 받은 후 초기화
+npm install
+
+----
+
+rafce - 기본틀 자동완성 키워드
+rcc - class component를 생성하는 키워드

@@ -1,0 +1,32 @@
+#리액트 프로젝트 생성
+npx create-react-app [프로젝트명]
+
+#vs code 열기
+code .
+
+#프로젝트 시작
+npm start
+
+#기존 폴더 받은 후 초기화
+npm install
+
+----
+
+rafce - 기본틀 자동완성 키워드
+rcc - class component를 생성하는 키워드
+
+----
+
+#weatger api
+https://openweathermap.org/api
+
+#리액트 부트스트랩
+https://react-bootstrap.netlify.app/docs/getting-started/introduction
+npm install react-bootstrap bootstrap
+
+#스피너
+https://www.npmjs.com/package/react-spinners
+npm i react-spinners
+
+#router
+npm install react-router@6 react-router-dom@6

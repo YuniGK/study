@@ -1,0 +1,12 @@
+.movie-card {position: relative; margin: 0 0 2rem;}
+.movie-card .movie-img{width: 100%; min-height:295px; height: 40vh; background-size: cover; cursor: pointer; transition: 5s;}
+.movie-slider-info{position: absolute; left: 0; bottom: 0; opacity: 0; box-sizing: border-box; padding: 2rem 1.5rem;
+width: 100%; height: 100%; background: rgba(43,41,41,.8); transition: all 1s; overflow-wrap: break-word;}
+.movie-slider-info:hover{opacity: 1;}
+
+.movie-slider-info h2{font-size: 1.2rem; line-height:1.25rem; margin-bottom: 25px;}
+.movie-slider-info .movie-id {border-top: 1px solid #fff; padding-top: 20px;}
+.movie-slider-info .movie-id .badge {margin-right: 5px;}
+.movie-slider-info .movie-info{font-size: .9rem; margin: 20px 0 0;}
+.movie-slider-info .movie-info .adult-true{color: red;}
+.movie-slider-info .movie-info .adult-false{color: blue;}

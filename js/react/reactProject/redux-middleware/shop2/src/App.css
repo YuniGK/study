@@ -1,0 +1,22 @@
+.nav-content{width: 90%; margin: 40px auto;}
+
+.logo-content{display: flex; justify-content: center;}
+.logo-content img{width: 100px;}
+
+.login-button{justify-content: flex-end; align-items: center; display: flex;
+width: 100%; cursor: pointer;}
+.login-button h4{margin: 0 0 0 10px;}
+
+.menu-content{display: flex; justify-content: center; margin: 20px 0 0;}
+.menu-content .menu {display: flex;}
+.menu-content .menu li{margin: 0 15px;}
+
+.search-box{position: absolute; right: 5%; padding: 0 5px; border-bottom: 1px solid #000;}
+
+.product-all .item-box{margin: 0 0 40px;}
+.product-all .img-box{overflow: hidden;}
+.product-all img{width: 100%; opacity: 1; transform: scale(1); transition: .5s ease-in-out;}
+.product-all .item-box:hover img{opacity: .4; transform: scale(1.2);}
+.product-all .title-box{margin: 10px 0; overflow-wrap: break-word; word-break: keep-all;}
+.product-all .choice{color: #710193;}
+.product-all .new {color: red;}

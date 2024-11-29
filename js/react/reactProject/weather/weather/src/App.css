@@ -1,0 +1,30 @@
+body{
+    background: no-repeat center url(../public/images/tree.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.contenter-box{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.weather-box{
+    border-radius: 5px;
+    background: rgba(255, 255, 255, .3);       
+    padding: 30px 10px;
+    width: 35%;
+}
+
+.weather-box .weather{
+    padding: 0 0 30px;
+}
+
+.weather-btn{
+    border-top: 1px solid silver;
+    padding: 30px 0 0;
+}

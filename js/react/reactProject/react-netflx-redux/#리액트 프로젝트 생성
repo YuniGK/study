@@ -1,0 +1,48 @@
+#리액트 프로젝트 생성
+npx create-react-app [프로젝트명]
+
+#vs code 열기
+code .
+
+#프로젝트 시작
+npm start
+
+#기존 폴더 받은 후 초기화
+npm install
+
+----
+
+#react-dom
+npm i react-dom
+
+#react-router-dom
+npm i react-router-dom
+
+#react-bootstrap
+npm install react-bootstrap bootstrap
+
+#react-redux
+https://react-redux.js.org/
+
+npm install redux react-redux
+
+#react-thunk
+https://github.com/reduxjs/redux-thunk
+
+#redux-devtools
+https://www.npmjs.com/package/redux-devtools-extension
+
+#axios
+npm i axios
+
+#spinner
+npm i react-spinners
+
+#silder
+npm i react-multi-carousel
+
+#font-awsome
+https://docs.fontawesome.com/v5/web/use-with/react
+
+#react-paginate
+https://www.npmjs.com/package/react-paginate

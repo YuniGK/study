@@ -1,0 +1,72 @@
+#리액트 프로젝트 생성
+npx create-react-app [프로젝트명]
+
+#vs code 열기
+code .
+
+#프로젝트 시작
+npm start
+
+#기존 폴더 받은 후 초기화
+npm install
+
+----
+
+rafce - 기본틀 자동완성 키워드
+rcc - class component를 생성하는 키워드
+
+----
+
+#weatger api
+https://openweathermap.org/api
+
+#리액트 부트스트랩
+https://react-bootstrap.netlify.app/docs/getting-started/introduction
+npm install react-bootstrap bootstrap
+
+#스피너
+https://www.npmjs.com/package/react-spinners
+npm i react-spinners
+
+#router
+npm install react-router@6 react-router-dom@6
+
+#fontawesome.com
+https://docs.fontawesome.com/v5/web/use-with/react
+https://docs.fontawesome.com/web/use-with/react
+
+#json-server
+https://www.npmjs.com/package/json-server
+root=>db.json파일 생성 
+터미널 npx json-server db.json 
+3000포트를 사용해 리액트와 중복되어 포트 설정을 따로 할 수 있는 아래의 명령어를 사용한다.
+json-server db.json --port 4000
+맥북의 경우 5000 사용중이므로 다른 포트를 사용한다.
+
+실행이 되지 않을 경우 
+npx json-server db.json --port 4000
+
+참고 https://www.heropy.dev/p/zZdlXx
+Package.json 설정 후 npm run dev로 하면 실행이 가능하다.
+
+npm uninstall -g json-server 서버 삭제 후
+npm install -g json-server@0.17.0 <- 원하는 버전으로 변경
+
+#react redux
+https://ko.redux.js.org/introduction/getting-started/
+
+#react-redux
+https://react-redux.js.org/
+npm i react-redux@8
+
+-> npm install redux react-redux
+
+#redux thunk
+https://github.com/reduxjs/redux-thunk
+
+npm install redux-thunk
+
+#redux-devtools
+https://www.npmjs.com/package/@redux-devtools/extension?activeTab=readme
+npm i @redux-devtools/extension
+
