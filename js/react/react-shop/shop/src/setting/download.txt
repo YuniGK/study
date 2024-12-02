@@ -32,6 +32,8 @@ npm install --save @fortawesome/react-fontawesome
 #react-paginate
 https://www.npmjs.com/package/react-paginate
 
+npm i react-paginate
+
 #formik
 npm i formik
 
